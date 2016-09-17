@@ -62,6 +62,10 @@ html, body, .container {
     vertical-align: middle;
 }
 
+.just {
+  text-align: justify;
+}
+
 /* Links */
 a {
     color: #1abc9c;
