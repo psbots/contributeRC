@@ -20,6 +20,8 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="assets/js/hover.zoom.js"></script>
     <script src="assets/js/hover.zoom.conf.js"></script>
+    <script src="assets/js/mustache.js"></script>
+    <script src="assets/js/main.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -38,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Seeking help to meet the top minds in AI</a>
+          <a class="navbar-brand" href="">Seeking help to meet the top minds in AI</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -59,7 +61,7 @@
             <h2>Seeking help to meet the top minds in AI</h2>
           </div>
           <div class="col-lg-6 mt">
-            <img class="img-responsive" src="assets/img/dlschool.jpg" alt="" />
+            <img class="img-responsive imgcenter" src="assets/img/dlschool.jpg" alt="" />
           </div>
 
         <div class="col-lg-6 mt" >
@@ -68,22 +70,27 @@
             <div>
             <div class="pm-button"><a href="https://www.payumoney.com/paybypayumoney/#/201331"><img src="assets/img/contribute_button.png" /></a></div>
             <div class="modal-footer" style="text-align: left">
+              <div id="statsTarget">Loading...</div>
+              <script id="statsTemplate" type="x-tmpl-mustache">
+              <div>
                 <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 6.66%;">
-                      <span class="sr-only">6.66% Complete</span>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{data.percent}}%;">
+                      <span class="sr-only">{{data.percent}}% Complete</span>
                   </div>
                 </div>
                 <div class="row centered">
-                  <div class="col-md-4 uptop"><b>6.66%</b><br/><small>FUNDED</small></div>
-                  <div class="col-md-4 uptop"><b>Rs 10000</b><br/><small>CONTRIBUTED</small></div>
-                  <div class="col-md-4 uptop"><b>9</b><br/><small>DAYS</small></div>
+                  <div class="col-md-4 uptop"><b>{{data.percent}}%</b><br/><small>FUNDED</small></div>
+                  <div class="col-md-4 uptop" id="totalAmount"><b>Rs {{data.totalAmount}}</b><br/><small>CONTRIBUTED</small></div>
+                  <div class="col-md-4 uptop"><b>{{data.count}}</b><br/><small> CONTRIBUTORS</small></div>
                 </div>
                 <div class="row centered uptop">
                   <div>
                     <p><b>of Rs 1,50,000 target</b></p>
                   </div>
                 </div>
+              </div>
             </div>
+            </script>
           </div>
           </div>
 
@@ -130,14 +137,17 @@
 			<div class="row">
         <div class="col-lg-4 centered">
           <!-- <p>Social Sharing Buttons</p> -->
+          <div id="backersTarget">Loading...</div>
+          <script id="backersTemplate" type="x-tmpl-mustache">
           <div>
-            <h3><b>Contributors</b></h3>
+            <h3><b>{{data.count}} Contributors</b></h3>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Backer 1<span style="float:right">Rs 1000</span></li>
-            <li class="list-group-item">Backer 2<span style="float:right">Rs 5000</span></li>
-            <li class="list-group-item">Backer 3<span style="float:right">Rs 4000</span></li>
+            {{#data.names}}
+            <li class="list-group-item">{{name}}<span style="float:right">Rs {{amount}}</span></li>
+            {{/data.names}}
           </ul>
+          </script>
           <div class="pm-button"><a href="https://www.payumoney.com/paybypayumoney/#/201331"><img src="assets/img/contribute_button.png" /></a></div>
 
         </div>

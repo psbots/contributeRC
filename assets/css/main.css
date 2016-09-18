@@ -50,6 +50,10 @@ p {
     text-align: center;
 }
 
+.img-responsive {
+    margin: 0 auto;
+}
+
 html, body, .container {
     height: 100%;
 }
@@ -269,4 +273,8 @@ bt {
 
 .uptop {
   padding-top: 20px;
+}
+
+#tweets {
+  margin: 0 auto;
 }
