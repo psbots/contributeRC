@@ -33,13 +33,13 @@
      -moz-column-width: 25em;
      -webkit-column-width: 25em;
      -moz-column-gap: 1em;
-     -webkit-column-gap:1em; 
-      
+     -webkit-column-gap:1em;
+
     }
     .item {
      display: inline-block;
      padding:  .25rem;
-     width:  100%; 
+     width:  100%;
     }
     .well {
      position:relative;
@@ -203,9 +203,9 @@
   <div id="ww">
     <div class="container pt">
       <div class="row contribs">
-          <div id="backersTarget">Loading...</div>
+          <div class="col-lg-12" id="backersTarget">Loading...</div>
           <script id="backersTemplate" type="x-tmpl-mustache">
-            <div>
+            <div class="col-lg-12">
               <h2><b>{{data.count}} Contributors</b></h2>
             </div>
             <br>
@@ -213,7 +213,11 @@
             <div class="item">
               <div class="well hvr-glow">
                 <h4>{{name}} contributed Rs. {{amount}}.</h4>
-                "{{comment}}"
+                {{#comment}}
+                  "{{comment}}"
+                {{/comment}}
+                {{^comment}}
+                {{/comment}}
               </div>
             </div>
             {{/data.names}}
