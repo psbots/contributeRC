@@ -24,7 +24,11 @@
     <script src="assets/js/mustache.js"></script>
     <script type="text/javascript" src="assets/js/social-share-kit.min.js"></script>
     <script src="assets/js/main.js"></script>
-
+    <script type="text/javascript">
+      function contribute(){
+        $('#Cbutton').click();
+      }
+    </script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -90,7 +94,7 @@
             <div class="pm-button hvr-float-shadow">
               <center>
                 <a href="https://www.payumoney.com/paybypayumoney/#/201331">
-                  <img src="assets/img/contribute_button.png"/>
+                  <img src="assets/img/contribute_button.png" id="Cbutton" />
                 </a>
               </center>
             </div>
@@ -236,6 +240,12 @@
             </div>
             {{/data.names}}
           </script>
+            <div class="item">
+              <div class="well hvr-glow ggray" onclick="contribute()">
+                <h4 class="ggray">You too can contribute !</h4>
+                "Thanks in advance."
+              </div>
+            </div>
       </div>
     </div>
   </div>
